@@ -1,0 +1,39 @@
+<div class="container">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Mi primer formulario
+  </div>
+  <div class="panel-body">
+    <form #form="ngForm" >
+      <div class="form-group">
+       <label for="codigo"> Codigo: </label>
+        <input type="text" class="form-control" id="codigo" name="codigo" ngModel #codigo>
+      </div>
+      <div ngModelGroup="contacto" #contacto="ngModelGroup">
+      <div class="form-group">
+       <label for="nombre"> Nombre: </label>
+        <input type="text" class="form-control" id="nombre" name="nombre" ngModel #nombre="ngModel" required>
+      </div>
+      <div *ngIf="!nombre.valid" class="alert -alert-danger">* Campo requerido</div>
+
+      <div class="form-group">
+       <label for="email"> email: </label>
+        <input type="email" class="form-control" id="email" name="email" ngModel #email>
+      </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+</div>
+{{nombre.className}} <br>
+Formulario: {{form.value | json}}
+<!--
+<label> hola: </label>
+<input type="text" [(ngmodel)]="demoDB" />
+<p> buenvenido {{ demoDB }}</p>
+
+<button (click)="visible=true"> saludar</button>
+<p [hidden]="!visible"> Holaa {{demoDB}}</p>
+
+-->
